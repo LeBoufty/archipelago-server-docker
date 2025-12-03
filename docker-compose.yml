@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  archipelago:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: archipelago
+    restart: unless-stopped
+    ports:
+      - "38281:38281"
+    volumes:
+      - ./output:/opt/Archipelago/output:rw
+    environment:
+      PYTHONUNBUFFERED: "1"
